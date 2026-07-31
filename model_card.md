@@ -2,7 +2,7 @@
 
 ## 1. Model Name  
 
-**VibeFinder 1.0**
+**Tuneable 1.0**
 
 A lightweight, explainable music recommender that scores every song in a small
 catalog against a listener's stated taste and returns the best matches with a
@@ -12,7 +12,7 @@ plain-language reason for each pick.
 
 ## 2. Intended Use  
 
-VibeFinder is built for **classroom exploration**, not production use. It takes
+Tuneable is built for **classroom exploration**, not production use. It takes
 a single listener's stated preferences — a favorite genre, a favorite mood, and
 a target energy level — and returns the top few songs from an 18-track catalog,
 each with a short explanation of *why* it was chosen.
@@ -84,7 +84,7 @@ almost always paired with certain energy levels.
 ## 5. Strengths  
 
 - **Consistent, mainstream profiles work great.** When a user's genre, mood, and
-  energy naturally go together, VibeFinder nails it. The "Chill Lofi" profile
+  energy naturally go together, Tuneable nails it. The "Chill Lofi" profile
   (lofi / chill / energy 0.35) returns *Library Rain* with a perfect **4.00 /
   4.0** — genre, mood, and energy all line up exactly.
 - **Every pick is explainable.** The per-song reason list makes it obvious why a
@@ -105,7 +105,7 @@ The clearest weakness is **genre over-domination combined with a sparse
 catalog**. Genre is worth 2 of the 4 available points — half the maximum — yet
 **13 of the 15 genres in the catalog have only a single song** (only lofi with 3
 and pop with 2 have more). This means that for a user whose favorite genre is a
-"singleton" genre, VibeFinder can surface *at most one* genuinely
+"singleton" genre, Tuneable can surface *at most one* genuinely
 genre-matched song; every remaining slot in their top 5 is filled by songs from
 unrelated genres that merely happen to sit near the requested energy level. This
 is visible in the "Deep Intense Rock" profile: *Storm Runner* is the only rock
@@ -129,7 +129,7 @@ that a "high-energy" song is also sad-sounding (low valence).
 
 ### Profiles tested
 
-I stress-tested VibeFinder against **five distinct profiles**, including two
+I stress-tested Tuneable against **five distinct profiles**, including two
 deliberately adversarial / edge-case profiles, and printed the top 5 for each.
 The three "normal" profiles cover well-populated and niche genres; the two edge
 cases probe conflicting preferences and a combination that does not exist in the
@@ -299,7 +299,7 @@ direct artifact of the dataset having one song per genre.
 
 ## 9. Personal Reflection  
 
-Building and stress-testing VibeFinder made it concrete that a recommender is
+Building and stress-testing Tuneable made it concrete that a recommender is
 only as good as the interaction between its *weights* and its *data*. The scoring
 recipe looked reasonable in isolation, but the moment I counted genres I could
 see that giving genre half the points, in a catalog where most genres have one
@@ -317,7 +317,7 @@ start to explain how major streaming platforms (like Spotify and YouTube)
 actually predict what a listener will like next, and the difference between
 collaborative filtering (learning from other users' behavior) and content-based
 filtering (matching song attributes). That explanation is what my whole design is
-based on — VibeFinder is essentially a small content-based recommender. Second,
+based on — Tuneable is essentially a small content-based recommender. Second,
 AI helped me understand *why* my user-profile targets failed, most memorably when
 it pointed out that my "chill lofi" profile set danceability to 0.20 even though
 the real lofi songs in my catalog sit around 0.58, so my own profile was working

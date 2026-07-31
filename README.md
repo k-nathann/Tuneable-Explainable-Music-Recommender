@@ -24,8 +24,10 @@ preferences into ranked, explainable results.
   or genre from dominating the results.
 - **Advanced feature scoring** — optional popularity, release-decade, and
   instrumentalness terms that refine ties without overruling the core signals.
+- **Interactive Streamlit UI** — set a taste profile, switch strategies, and
+  toggle diversity in the browser, with a live score chart and per-song reasons.
 - **Clean ASCII table output** — a pure-standard-library, word-wrapped table
-  renderer (no external table dependency).
+  renderer (no external table dependency) for the CLI.
 - **Model card included** — a formal [model card](model_card.md) documenting
   intended use, limitations, and bias risks.
 
@@ -69,7 +71,17 @@ source .venv/bin/activate      # macOS / Linux
 pip install -r requirements.txt
 ```
 
-### Run the app
+### Run the web UI
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Opens an interactive interface where you can set a taste profile, switch scoring
+strategies, toggle diversity, and see the ranked picks with a live score chart
+and a reason breakdown for each song.
+
+### Run the CLI
 
 ```bash
 python -m src.main
@@ -124,6 +136,7 @@ happy **and** ~0.8 energy), so it tops the list. *Gym Hero* is pop but
 
 ```
 .
+├── streamlit_app.py      # Streamlit web UI (thin layer over the engine)
 ├── src/
 │   ├── main.py           # CLI runner: profiles, strategy/diversity demos, table output
 │   └── recommender.py    # Song/UserProfile/Recommender, scoring engine, strategies
@@ -157,5 +170,3 @@ where bias could surface.
 ## 🛠️ Tech Stack
 
 Python · pandas · pytest · Streamlit
-
-
